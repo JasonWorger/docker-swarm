@@ -1,0 +1,7 @@
+- name: Add nodes
+  docker_swarm:
+    state: join
+    advertise_addr: manager
+    join_token: result.swarm_facts.JoinTokens.Worker
+    remote_addrs: manager
+  when: "ansible_default_ipv4.address != manager

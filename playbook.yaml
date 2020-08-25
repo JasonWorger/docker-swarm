@@ -1,0 +1,21 @@
+- hosts: dockerswarm
+  become: yes
+  tasks:
+  roles:
+  - docker
+
+- hosts: manager
+  become: yes
+  tasks:
+  roles:
+  - dockerswarm
+  - manager
+
+- hosts: worker
+  become: yes
+  tasks:
+  roles:
+  - dockerswarm
+  - worker
+  
+
